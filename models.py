@@ -43,8 +43,8 @@ class PatchEmbedding(nn.Module):
         linear_projection = self.linearProjection(pached_imgs)
         b, n_p, _ = linear_projection.shape
 
-        #cls_token-->(b, 1, embed_dim)
-        self.cls_token_embedded = self.cls_token.repeat(b, 1, 1)
+        #cls_token_repated-->(b, 1, embed_dim)
+        self.cls_token_repated = self.cls_token.repeat(b, 1, 1)
 
         #linear_projection --> (b, n_patch+1, embed_dim)
         linear_projection = torch.cat(
